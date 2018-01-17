@@ -1,0 +1,23 @@
+1 - criar diretório
+2 - iniciar npm (npm init)
+3 - baixar dependências
+  > express (npm install express --save);
+  > ejs (npm install ejs --save);
+  > consign (npm install consign --save);
+  > Body Parser (npm install body-parser --save);
+  > Express Validator (npm install express-validator --save);
+ 4 - criar estrutura de diretórios
+	>pasta do projeto
+		> app
+			> controller
+			> model
+			> public
+				> css
+				> images
+				> js
+			> route
+			> view
+		> config
+			server.js
+		app.js
+ 
