@@ -6,10 +6,18 @@ module.exports.iniciaChat = function(application, req, res){
 
 	var errors = req.validationErrors();
 	if(errors){
-		res.send("Existem erros no formulário");
+		//res.send("Existem erros no formulário");
 		//res.send encerra o processamento da função, portanto não é necessário dar return;
 		//qualquer outro comando diferente de res.send, atribuir return logo em seguida, senão vai continuar executando
+
+		res.render("index", {validacao: errors});
+		return;
 	}
 
-	res.render("chat");
+	/*obtendo variável global*/
+	var io = application.get("io");
+
+	io.emit("msgParaCliente", {"apelido": dadosForm.apelido, "mensagem": "acabou de entrar no chat"});
+
+	res.render("chat", {dadosForm: dadosForm});
 }
